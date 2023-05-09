@@ -1,0 +1,87 @@
+.symbol {
+    font-size: 5rem;
+    padding: 1rem;
+    height: 8rem; /* set the height to fit 5 rows in a column */
+  }
+  
+  .slot-machine {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 100px;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 2s ease;
+  }
+  
+  .slot-machine .row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .slot-machine .symbol:hover {
+    transform: scale(0.9);
+  }
+  
+  .row.spin {
+    animation: spin 4s ease-in-out forwards;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: translateY(-300%);
+    }
+    5% {
+      transform: translateY(0%);
+    }
+    15% {
+      transform: translateY(-20%);
+    }
+    25% {
+      transform: translateY(0%);
+    }
+    35% {
+      transform: translateY(-10%);
+    }
+    45% {
+      transform: translateY(0%);
+    }
+    55% {
+      transform: translateY(-5%);
+    }
+    65% {
+      transform: translateY(0%);
+    }
+    75% {
+      transform: translateY(-2%);
+    }
+    85% {
+      transform: translateY(0%);
+    }
+    95% {
+      transform: translateY(-1%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+  
+  .spin {
+    animation: none;
+  }
+  
