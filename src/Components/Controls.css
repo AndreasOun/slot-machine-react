@@ -1,0 +1,79 @@
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .credit-display {
+    order: 1;
+    flex: 1;
+    text-align: left;
+    color: #fff;
+    font-size: 28px;
+    margin-right: 20px;
+  }
+  
+  .bet-selector {
+    order: 2;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bet-selector label {
+    color: #fff;
+    font-size: 28px;
+    margin-right: 20px;
+  }
+  
+  .bet-selector .button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bet-selector button {
+    background-color: #e1d632;
+    color: #000;
+    border-radius: 10px;
+    border: none;
+    font-size: 28px;
+    padding: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  .bet-selector button.active {
+    background-color: #f00;
+    color: #fff;
+  }
+  
+  .bet-selector button:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  
+  .bet-selector button:last-child {
+    margin-right: 0;
+  }
+  
+  .spinButton {
+    order: 3;
+    background-color: #e1d632;
+    color: #000;
+    border-radius: 10px;
+    border: none;
+    font-size: 28px;
+    padding: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  

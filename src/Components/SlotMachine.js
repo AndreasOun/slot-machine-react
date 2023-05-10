@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Random } from 'random';
 import './SlotMachine.css';
+import Controls from './Controls';
+
 
 const SYMBOLS = ['🍒', '🍊', '🍇', '🍓','🍉', '🍌'];
 const WINNINGS_MAP = {
@@ -9,7 +11,7 @@ const WINNINGS_MAP = {
   '🍇': 40,
   '🍓': 60,
   '🍉': 75,
-  '🍌': 100
+  '🍌': 100,
 };
 
 function SlotMachine() {
@@ -19,6 +21,7 @@ function SlotMachine() {
   const [totalWinnings, setTotalWinnings] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
   const randomInstance = new Random();
+  const [bet, setBet] = useState(1);
 
   useEffect(() => {
     resetReels();
@@ -44,6 +47,7 @@ function SlotMachine() {
     if (isSpinning) return;
 
     setIsSpinning(true);
+
 
     const newReels = [];
     for (let i = 0; i < reels.length; i++) {
@@ -71,13 +75,13 @@ function SlotMachine() {
           break;
         }
       }
-      if (currentCount === 4) {
+      if (currentCount === 5) {
         const winnings = WINNINGS_MAP[currentSymbol];
         totalWinnings += winnings;
         winningSymbol = currentSymbol;
       }
     }
-
+    
 
     // Check for winning combinations in rows
     for (let i = 0; i < reels.length; i++) {
@@ -97,6 +101,8 @@ function SlotMachine() {
       }
     }
 
+    
+
 
     setReels(newReels);
     setCredits((credits) => credits - 1 + totalWinnings);
@@ -115,6 +121,7 @@ function SlotMachine() {
       {reels.map((row, rowIndex) => (
         <div key={rowIndex} className={`row ${isSpinning ? "spin" : ""}`}>
           {row.map((symbol, columnIndex) => (
+            
             <div
               key={columnIndex}
               className={`symbol ${symbol === winning ? "winner" : ""}`}
@@ -124,18 +131,19 @@ function SlotMachine() {
           ))}
         </div>
       ))}
-      <button onClick={spinReels} disabled={isSpinning}>
-        {isSpinning ? "Spinning..." : "Spin"}
-      </button>
-      {/* UI for displaying the user's credits */}
-      <p>Credits: {credits}</p>
-      {winning && (
-        <div className="win-message">
-          <p>You won {totalWinnings} credits with {winning}!</p>
-        </div>
-      )}
+       <div className="slot-machine">
+      {/* ... */}
+      <Controls
+        credits={credits}
+        betAmount={bet}
+        setBetAmount={setBet}
+        spinReels={spinReels}
+        isSpinning={isSpinning}
+      />
+      </div>
     </div>
   );
 }
+
 
 export default SlotMachine;
