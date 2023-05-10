@@ -41,6 +41,12 @@
   .row.spin {
     animation: spin 4s ease-in-out forwards;
   }
+
+  .slot-machine .symbol.winner {
+    font-size: 3rem;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ffbf00,
+      0 0 70px #ffbf00, 0 0 80px #ffbf00, 0 0 100px #ffbf00, 0 0 150px #ffbf00;
+  }
   
   @keyframes spin {
     0% {
