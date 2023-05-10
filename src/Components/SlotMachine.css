@@ -10,7 +10,9 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 55px;
+    height: 400px; 
+    margin: auto; 
+    margin-top: 60px; 
   }
   
   .column {
@@ -46,6 +48,16 @@
     font-size: 3rem;
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ffbf00,
       0 0 70px #ffbf00, 0 0 80px #ffbf00, 0 0 100px #ffbf00, 0 0 150px #ffbf00;
+  }
+
+  .win-message {
+    background-color: #e8da14;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
   }
   
   @keyframes spin {

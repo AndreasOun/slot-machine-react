@@ -18,7 +18,7 @@ function SlotMachine() {
   const [reels, setReels] = useState([]);
   const [credits, setCredits] = useState(100);
   const [winning, setWinning] = useState(null);
-  const [totalWinnings, setTotalWinnings] = useState(0);
+  const [totalWon, setTotalWinnings] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
   const randomInstance = new Random();
   const [bet, setBet] = useState(1);
@@ -45,10 +45,9 @@ function SlotMachine() {
 
   function spinReels() {
     if (isSpinning) return;
-
+  
     setIsSpinning(true);
-
-
+  
     const newReels = [];
     for (let i = 0; i < reels.length; i++) {
       const newSymbols = [];
@@ -59,56 +58,51 @@ function SlotMachine() {
       }
       newReels.push(newSymbols);
     }
-
+  
     let totalWinnings = 0;
     let winningSymbol = null;
-
-
+  
     // Check for winning combinations in columns
-    for (let i = 0; i < reels.length; i++) {
-      let currentSymbol = reels[0][i];
+    for (let i = 0; i < newReels.length; i++) {
+      let currentSymbol = newReels[0][i];
       let currentCount = 1;
-      for (let j = 1; j < reels.length; j++) {
-        if (reels[j][i] === currentSymbol) {
+      for (let j = 1; j < newReels.length; j++) {
+        if (newReels[j][i] === currentSymbol) {
           currentCount++;
         } else {
           break;
         }
       }
-      if (currentCount === 5) {
+      if (currentCount === 3) {
         const winnings = WINNINGS_MAP[currentSymbol];
         totalWinnings += winnings;
         winningSymbol = currentSymbol;
       }
     }
-    
-
+  
     // Check for winning combinations in rows
-    for (let i = 0; i < reels.length; i++) {
-      let currentSymbol = reels[i][0];
+    for (let i = 0; i < newReels.length; i++) {
+      let currentSymbol = newReels[i][0];
       let currentCount = 1;
-      for (let j = 1; j < reels[i].length; j++) {
-        if (reels[i][j] === currentSymbol) {
+      for (let j = 1; j < newReels[i].length; j++) {
+        if (newReels[i][j] === currentSymbol) {
           currentCount++;
         } else {
           break;
         }
       }
-      if (currentCount === 4) {
+      if (currentCount === 3) {
         const winnings = WINNINGS_MAP[currentSymbol];
         totalWinnings += winnings;
         winningSymbol = currentSymbol;
       }
     }
-
-    
-
-
+  
     setReels(newReels);
     setCredits((credits) => credits - 1 + totalWinnings);
     setWinning(winningSymbol);
     setTotalWinnings(totalWinnings);
-
+  
     setTimeout(() => {
       setIsSpinning(false);
     }, 2000);
@@ -121,7 +115,6 @@ function SlotMachine() {
       {reels.map((row, rowIndex) => (
         <div key={rowIndex} className={`row ${isSpinning ? "spin" : ""}`}>
           {row.map((symbol, columnIndex) => (
-            
             <div
               key={columnIndex}
               className={`symbol ${symbol === winning ? "winner" : ""}`}
@@ -131,16 +124,27 @@ function SlotMachine() {
           ))}
         </div>
       ))}
-       <div className="slot-machine">
-      {/* ... */}
+      {/* Controls section */}
       <Controls
         credits={credits}
         betAmount={bet}
         setBetAmount={setBet}
         spinReels={spinReels}
         isSpinning={isSpinning}
+        totalWon={totalWon}
       />
-      </div>
+      {/* Win message */}
+      {winning && (
+        <div className="win-message">
+          Congratulations! You won {WINNINGS_MAP[winning] * bet} credits!
+        </div>
+      )}
+      {/* Total credits won message */}
+      {totalWon > 0 && (
+        <div className="win-message">
+          Total credits won: {totalWon}
+        </div>
+      )}
     </div>
   );
 }
