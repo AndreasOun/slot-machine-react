@@ -19,4 +19,13 @@
     text-align: center;
   }
   
-  
+  @media screen and (max-width: 768px) {
+    .navbar {
+    height: 60px;
+    padding: 0 20px;
+    }
+    
+    .navbar h1 {
+    font-size: 2rem;
+    }
+  }

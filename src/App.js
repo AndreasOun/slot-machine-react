@@ -1,4 +1,4 @@
-import './App.css';
+import './index.css';
 import React from 'react';
 import SlotMachine from './Components/SlotMachine';
 import Navbar from './Components/Navbar';
