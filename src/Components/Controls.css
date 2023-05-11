@@ -4,11 +4,12 @@
     align-items: center;
     background-color: #222;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    margin-bottom: 20px;
   }
   
   .credit-display {

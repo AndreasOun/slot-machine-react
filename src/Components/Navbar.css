@@ -19,28 +19,4 @@
     text-align: center;
   }
   
-  .navbar-links {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar-links li {
-    margin: 0 10px;
-  }
-  
-  .navbar-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.5rem;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .navbar-links a:hover {
-    transform: scale(1.2);
-    color: #000;
-  }
   
