@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/slot-machine-react/static/css/main.8183c8bf.css",
+    "main.js": "/slot-machine-react/static/js/main.b775df31.js",
+    "static/media/background.jpg": "/slot-machine-react/static/media/background.f00febcfb7045a44b4a7.jpg",
+    "index.html": "/slot-machine-react/index.html",
+    "main.8183c8bf.css.map": "/slot-machine-react/static/css/main.8183c8bf.css.map",
+    "main.b775df31.js.map": "/slot-machine-react/static/js/main.b775df31.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8183c8bf.css",
+    "static/js/main.b775df31.js"
+  ]
+}
