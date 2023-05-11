@@ -74,7 +74,7 @@ function SlotMachine() {
         }
       }
       if (currentCount === 3) {
-        const winnings = WINNINGS_MAP[currentSymbol];
+        const winnings = WINNINGS_MAP[currentSymbol] * bet;
         totalWinnings += winnings;
         winningSymbol = currentSymbol;
       }
@@ -92,14 +92,14 @@ function SlotMachine() {
         }
       }
       if (currentCount === 3) {
-        const winnings = WINNINGS_MAP[currentSymbol];
+        const winnings = WINNINGS_MAP[currentSymbol] * bet;
         totalWinnings += winnings;
         winningSymbol = currentSymbol;
       }
     }
   
     setReels(newReels);
-    setCredits((credits) => credits - 1 + totalWinnings);
+    setCredits((credits) => credits - bet + totalWinnings);
     setWinning(winningSymbol);
     setTotalWinnings(totalWinnings);
   
@@ -137,12 +137,6 @@ function SlotMachine() {
       {winning && (
         <div className="win-message">
           Congratulations! You won {WINNINGS_MAP[winning] * bet} credits!
-        </div>
-      )}
-      {/* Total credits won message */}
-      {totalWon > 0 && (
-        <div className="win-message">
-          Total credits won: {totalWon}
         </div>
       )}
     </div>
