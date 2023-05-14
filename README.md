@@ -12,3 +12,4 @@ Live demo here: https://andreasoun.github.io/slot-machine-react/
 
 # Screenshots
 
+![slotmachine](https://github.com/AndreasOun/slot-machine-react/assets/95022949/ffbe7220-c7b6-493d-9663-83bca044a21a)
